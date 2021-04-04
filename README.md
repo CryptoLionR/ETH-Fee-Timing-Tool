@@ -13,7 +13,7 @@ This tool takes the average transaction fee (USD) over the past 5 days.
 
 This graph shows the hourly average transaction fees. We are able to see the average hourly prices over a 5-day period giving the user a good idea on when to do a transaction.
 
-## Narrowing the search (PST)
+## Narrowing the search
 
 We want to find the optimal time to stake and claim. The following graph shows only the hours that have average transaction fees under the overall average. These times were most optimal over the past 5 days and should be a good indicator for the following day. 
 ![Under_Average_graph](plots/under_average.png)
