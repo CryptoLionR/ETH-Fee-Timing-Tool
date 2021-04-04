@@ -6,9 +6,13 @@ from collections import Counter as c
 import time
 
 #based on the flipcoin api data
-dataset = rq.urlopen('https://api.flipsidecrypto.com/api/v2/queries/a8f048e1-e99e-49b1-a659-cb4608b2a818/data/latest')
-dataset = dataset.read()
-dataset = json.loads(dataset)
+url = 'https://api.flipsidecrypto.com/api/v2/queries/a8f048e1-e99e-49b1-a659-cb4608b2a818/data/latest'
+try:
+    dataset = rq.urlopen(url)
+    dataset = dataset.read()
+    dataset = json.loads(dataset)
+except Exception as e:
+    print('Unable to get data from flipsidecrypto API. Check the URL below: \n{}'.format(url))
 
 for i,item in enumerate(dataset):
     dataset[i]['HOUR'] = item['HOUR'].split('T')[1].rsplit(':')[0]
@@ -47,6 +51,7 @@ hour_freq = c(hours)
 print('Local Hours that have consistent low fees:')
 
 counter = 0
+toprint = []
 for key, value in hour_freq.items():
     avg = 0
     c = 0
@@ -62,10 +67,15 @@ for key, value in hour_freq.items():
         if avg != 0:
             avg = avg/c
         if int(key) - timezone_offset < 0:
-            x = str(int(int(key) + 24 - timezone_offset))
+            x = int(int(key) + 24 - timezone_offset)
         else:
-            x = str(int(int(key) - timezone_offset))
-        print("[{:02d}:00]:~${:.2f} USD".format(int(x),avg))
+            x = int(int(key) - timezone_offset)
+        toprint.append({'time':x,'price':avg})
+        #print("[{:02d}:00]:~${:.2f} USD".format(int(x),avg))
     else:
         while str(int(key)+1) not in dataset[counter]['HOUR']:
             counter+=1
+    
+    toprint = sorted(toprint,key=lambda hour: hour['time'])
+for elem in toprint:
+    print("[{:02d}:00]:~${:.2f} USD".format(int(elem['time']),elem['price']))
