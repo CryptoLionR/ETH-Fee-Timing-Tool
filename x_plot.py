@@ -79,8 +79,8 @@ for key, value in hour_freq.items():
     else:
         while str(int(key)+1) not in dataset[counter]['HOUR']:
             counter+=1
-    #sort based on local time
-    toprint = sorted(toprint,key=lambda hour: hour['time'])
+#sort based on local time
+toprint = sorted(toprint,key=lambda hour: hour['time'])
 
 times = []
 prices = []
