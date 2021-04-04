@@ -18,3 +18,7 @@ This graph shows the hourly average transaction fees. We are able to see the ave
 We want to find the optimal time to stake and claim. The following graph shows only the hours that have average transaction fees under the overall average. These times were most optimal over the past 5 days and should be a good indicator for the following day. 
 ![Under_Average_graph](plots/under_average.png)
 
+## Example Output
+
+Outputs the hours that have lower than total average transaction fee - as well as their average transaction fee. 
+![example_output](outputs/2021-04-04.png)
