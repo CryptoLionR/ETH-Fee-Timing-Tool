@@ -11,7 +11,7 @@ This tool takes the average transaction fee (USD) over the past 5 days.
 ## Average Transaction Fee by the hour over the past 5 days (PST)
 ![All_Averages_graph](plots/all_averages.png)
 
-This graph shows the hourly average transaction fees. We are able to see the average hourly prices over a 5-day period giving the user a good idea on when to do a transaction.
+This graph shows the hourly average transaction fees over a 5-day period.
 
 ## Narrowing the search
 
