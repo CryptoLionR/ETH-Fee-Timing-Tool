@@ -37,10 +37,16 @@ for elem in dataset:
 fee_avg = np.percentile(fee,50)
 print("Hourly Average Transaction Fee over past 5 days: ${:.2f} USD".format(fee_avg))
 
+# for i,elem in enumerate(fee):
+#     if fee_avg > elem:
+#         indexes.append(i)
 
 for i,element in enumerate(dataset):
-    hours.append(element['HOUR'])
-    counter+=1
+    # if indexes[counter] == i:
+        hours.append(element['HOUR'])
+        # counter+=1
+        # if counter >= len(indexes):
+        #     break
 
 hour_freq = c(hours)
 
@@ -86,7 +92,7 @@ for elem in toprint:
     prices.append(elem['price'])
 
 plt.bar(times,prices)
-plt.title('Average Hourly Prices over the Past 5 Days')
+plt.title('Average Hourly Prices Under 5 Day Average')
 plt.xlabel('Hours (local timezone)')
 plt.ylabel('Average Transaction Fee (USD)')
 plt.xticks(ha='right',rotation=45)
