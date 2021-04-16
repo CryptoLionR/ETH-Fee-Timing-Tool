@@ -63,5 +63,5 @@ hourly_avgs = sorted(hourly_avgs,key=lambda hour: hour['HOUR'])
 for elem in hourly_avgs:
     if elem['AVERAGE_FEE'] < fee_avg:
         print("[{:02d}:00]:~${:.2f} USD".format(int(elem['HOUR']),elem['AVERAGE_FEE']))
-print('NOTE: Hours are in {}\n'.format(time.tzname[0]))
+print('NOTE: Hours are in Local Time ({})\n'.format(time.tzname[0]))
 x = input('Press X to exit')

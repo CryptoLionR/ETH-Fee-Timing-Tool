@@ -21,4 +21,4 @@ We want to find the optimal time to stake and claim. The following graph shows o
 ## Example Output
 
 Outputs the hours that have lower than total average transaction fee - as well as their average transaction fee. 
-![example_output](outputs/2021-04-04.png)
+![example_output](outputs/apr_15.png)
